@@ -5,5 +5,6 @@ from todo.views import todo_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('todo.urls', namespace='todos')), #separate app urls and call them with an include
+    #separate app urls and call them with an include
+    path('', include('todo.urls', namespace='todos')),
 ]

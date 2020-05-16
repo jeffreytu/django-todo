@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeff's ToDo</title>
+</head>
+<body>
+    <ul>
+        <h4>Create a ToDo</h4>
+        <form method="POST"> {% comment %} sends a post request {% endcomment %}
+            {% csrf_token %} {% comment %} security feature of django {% endcomment %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </ul>
+</body>
+</html>

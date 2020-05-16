@@ -10,10 +10,8 @@
         {% if request.user.is_authenticated %}
             Hello {{ request.user.username }}
         {% endif %}
-        <a href ="/create">Create a ToDo</a>
-        {% for todo in todo_list %}
-            <li><a href='/{{ todo.id }}'>{{ todo.name }}</a>, it's due {{ todo.due_date }}</li>
-        {% endfor %}
+        The ToDo name is {{ todo.name }}
+        The due date is {{ todo.due_date }}
     </ul>
 </body>
 </html>
