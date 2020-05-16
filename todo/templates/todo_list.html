@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeff's ToDo</title>
+</head>
+<body>
+    <ul>
+        {% if request.user.is_authenticated %}
+            Hello {{ request.user.username }}
+        {% endif %}
+        {% for todo in todo_list %}
+            <li>{{ todo.name }}, it's due {{ todo.due_date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
