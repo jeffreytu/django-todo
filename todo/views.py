@@ -47,3 +47,8 @@ def todo_update(request, id):
         return redirect('/')
     context = {"form": form} #context is required. calling form will allow django to build the input forms automatically
     return render(request, "todo_update.html", context)
+
+def todo_delete(request,id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect('/')
