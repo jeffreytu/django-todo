@@ -38,3 +38,12 @@ def todo_create(request):
         return redirect('/') #django shortcut to direct back to list view
     context = {"form": form} #context is required. calling form will allow django to build the input forms automatically
     return render(request, "todo_create.html", context)
+
+def todo_update(request, id):
+    todo = ToDo.objects.get(id=id)
+    form = ToDoForm(request.POST or None, instance=todo) #pass in data of todo object, pass object into form to pre-populate
+    if form.is_valid():
+        form.save()
+        return redirect('/')
+    context = {"form": form} #context is required. calling form will allow django to build the input forms automatically
+    return render(request, "todo_update.html", context)

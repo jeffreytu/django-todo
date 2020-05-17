@@ -12,6 +12,8 @@
         {% endif %}
         The ToDo name is {{ todo.name }}
         The due date is {{ todo.due_date }}
+
+        <a href="/{{ todo.id }}/update">Update ToDo</a>
     </ul>
 </body>
 </html>
