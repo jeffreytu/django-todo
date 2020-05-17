@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeff's ToDo</title>
-</head>
-<body>
-    <ul>
-        {% if request.user.is_authenticated %}
-            Hello {{ request.user.username }}
-        {% endif %}
-        The ToDo name is {{ todo.name }}
-        The due date is {{ todo.due_date }}
+{% extends "base.html" %}
 
-        <a href="/{{ todo.id }}/update">Update ToDo</a>
-        <a href="/{{ todo.id }}/delete">Delete ToDo</a>
-    </ul>
-</body>
-</html>
+{% block content %}
+    <div class="text-center">
+    {% if request.user.is_authenticated %}
+        Hello {{ request.user.username }}
+    {% endif %}
+    </div>
+    <div class="col-4 offset-4">
+        <a href="/" class="btn btn-secondary">Home</a>
+        <div class="card mt-4">
+            <div class="card-header">
+                <a href="/{{ todo.id }}"></h4>{{ todo.name }}</h4></a>
+            </div>
+            <div class="card-body">
+                <p>{{ todo.due_date }}</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-secondary" href="/{{ todo.id }}/update">Update ToDo</a>
+                <a class="btn btn-secondary" href="/{{ todo.id }}/delete">Delete ToDo</a>
+        </div>
+    </div>
+{% endblock content %}
